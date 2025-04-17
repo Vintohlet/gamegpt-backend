@@ -7,7 +7,13 @@ import chatRoutes from "./routes/chat.routes.js"
 import messageRoutes from "./routes/message.routes.js"
 
 const app = express();
-app.use(cors())
+const corsOptions = {
+    origin: 'https://game-gpt-frontend.vercel.app', 
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true, 
+    optionsSuccessStatus: 204,
+};
+app.use(cors(corsOptions))
 app.use(express.json()) 
 const DB_PASSWORD = process.env.DB_PASSWORD;
 
